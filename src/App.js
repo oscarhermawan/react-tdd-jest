@@ -5,6 +5,14 @@ import './App.css';
 import { Content } from './components'
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      task : {
+        id:3, task:'learn php', value:'done'
+      }
+    }
+  }
   render() {
     return (
       <div className="App">
@@ -15,7 +23,7 @@ class App extends Component {
         <p className="App-intro">
           This app do something! Let's develop this app using TDD!
         </p>
-        <Content />
+        <Content task={this.state.task} />
       </div>
     );
   }

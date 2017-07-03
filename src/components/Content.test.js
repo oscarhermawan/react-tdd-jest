@@ -57,5 +57,14 @@ describe('<Content> component', ()=>{
     expect(kanbansState).toHaveLength(2);
   });
 
-
+  //PROPS TEST
+  it('get task props from <App />', () => {
+    const contentWrapperWithProps = shallow(<Content />);
+    // we use unrendered here since shallow does not render the actual dom
+    // to properly test props, we need to use mount instead of shallow
+    // but since mount will add significant complexity, let's skip that for now!
+    const taskProp = contentWrapperWithProps.props('task');
+    const isAString = typeof taskProp === 'object';
+    expect(isAString).toBeTruthy();
+  });
 })
